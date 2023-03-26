@@ -21,8 +21,4 @@
     <ProjectReference Include="..\ProjectCosts.WebApp.State\ProjectCosts.Web.Store.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Layout\" />
-  </ItemGroup>
-
 </Project>
