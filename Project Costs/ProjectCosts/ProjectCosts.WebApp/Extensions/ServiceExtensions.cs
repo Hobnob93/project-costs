@@ -1,7 +1,7 @@
 ﻿using Fluxor;
 using MudBlazor;
 using MudBlazor.Services;
-using ProjectCosts.Web.State.Assembly;
+using ProjectCosts.Web.Store.Assembly;
 
 namespace ProjectCosts.Web.Extensions;
 

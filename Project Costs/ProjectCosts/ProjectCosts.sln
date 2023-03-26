@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectCosts.Api.Mediation"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectCosts.Web.Components", "ProjectCosts.WebApp.Components\ProjectCosts.Web.Components.csproj", "{F2F7FB70-E34C-4F00-95AF-D6FE49A152D1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectCosts.Web.State", "ProjectCosts.WebApp.State\ProjectCosts.Web.State.csproj", "{F0E770FB-BBB8-469C-A678-B03A4585CDBE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectCosts.Web.Store", "ProjectCosts.WebApp.State\ProjectCosts.Web.Store.csproj", "{F0E770FB-BBB8-469C-A678-B03A4585CDBE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "api", "api", "{428A6E48-BBFF-477D-A18A-046FD4531DF7}"
 EndProject
@@ -25,7 +25,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{67FAD33E-D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectCosts.Api.Mediation.Tests", "ProjectCosts.Api.Mediation.Tests\ProjectCosts.Api.Mediation.Tests.csproj", "{CDB5519A-4F4E-4A2D-BB8B-92ACD41A7CFD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectCosts.Web.State.Tests", "ProjectCosts.Web.State.Tests\ProjectCosts.Web.State.Tests.csproj", "{F39ADED8-4776-4062-BC2F-F7FF7E444823}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectCosts.Web.Store.Tests", "ProjectCosts.Web.State.Tests\ProjectCosts.Web.Store.Tests.csproj", "{F39ADED8-4776-4062-BC2F-F7FF7E444823}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectCosts.Core.Tests", "ProjectCosts.Core.Tests\ProjectCosts.Core.Tests.csproj", "{EA0F873F-1E78-4C8F-882A-B9C85B7402A5}"
 EndProject

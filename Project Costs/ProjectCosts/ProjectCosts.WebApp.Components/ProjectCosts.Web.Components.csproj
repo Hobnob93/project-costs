@@ -18,7 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ProjectCosts.Core\ProjectCosts.Core.csproj" />
-    <ProjectReference Include="..\ProjectCosts.WebApp.State\ProjectCosts.Web.State.csproj" />
+    <ProjectReference Include="..\ProjectCosts.WebApp.State\ProjectCosts.Web.Store.csproj" />
   </ItemGroup>
 
   <ItemGroup>

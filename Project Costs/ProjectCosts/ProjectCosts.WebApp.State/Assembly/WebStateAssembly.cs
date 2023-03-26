@@ -1,4 +1,4 @@
-﻿namespace ProjectCosts.Web.State.Assembly;
+﻿namespace ProjectCosts.Web.Store.Assembly;
 
 public static class WebStateAssembly
 {
