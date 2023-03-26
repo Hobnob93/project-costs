@@ -17,12 +17,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\" />
+    <ProjectReference Include="..\ProjectCosts.Core\ProjectCosts.Core.csproj" />
+    <ProjectReference Include="..\ProjectCosts.WebApp.State\ProjectCosts.Web.State.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ProjectCosts.Core\ProjectCosts.Core.csproj" />
-    <ProjectReference Include="..\ProjectCosts.WebApp.State\ProjectCosts.Web.State.csproj" />
+    <Folder Include="Layout\" />
   </ItemGroup>
 
 </Project>

@@ -1,5 +1,27 @@
 ﻿@inherits LayoutComponentBase
 
-<main>
-    @Body
-</main>
+<MudThemeProvider IsDarkMode="true" />
+<MudDialogProvider
+    FullWidth="true"
+    MaxWidth="MaxWidth.Large"
+    CloseButton="true"
+    CloseOnEscapeKey="true"
+    Position="DialogPosition.Center"
+    DisableBackdropClick="true"
+/>
+<MudSnackbarProvider />
+
+<MudLayout>
+    <MudAppBar Elevation="1">
+        <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@(_ => ToggleDrawer())" />
+        <MudText Typo="Typo.h5" Class="ml-3">Project Costs</MudText>
+    </MudAppBar>
+    <MudDrawer @bind-Open="_drawerOpen" ClipMode="DrawerClipMode.Always" Elevation="2">
+        <NavMenu />
+    </MudDrawer>
+    <MudMainContent>
+        <MudContainer MaxWidth="MaxWidth.ExtraLarge" Class="mt-5">
+            @Body
+        </MudContainer>
+    </MudMainContent>
+</MudLayout>
