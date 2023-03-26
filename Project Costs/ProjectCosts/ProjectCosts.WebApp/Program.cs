@@ -1,16 +1,13 @@
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using MudBlazor;
-using MudBlazor.Services;
 using ProjectCosts.Web;
+using ProjectCosts.Web.Extensions;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
-builder.Services.AddMudServices(config =>
-{
-    config.SnackbarConfiguration.PositionClass = Defaults.Classes.Position.BottomRight;
-});
+builder.Services.SetupMudBlazor();
+builder.Services.SetupFluxor();
 
 await builder.Build().RunAsync();
