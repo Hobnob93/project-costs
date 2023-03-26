@@ -13,6 +13,16 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="7.0.4" />
+    <PackageReference Include="MudBlazor" Version="6.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ProjectCosts.Core\ProjectCosts.Core.csproj" />
+    <ProjectReference Include="..\ProjectCosts.WebApp.State\ProjectCosts.Web.State.csproj" />
   </ItemGroup>
 
 </Project>

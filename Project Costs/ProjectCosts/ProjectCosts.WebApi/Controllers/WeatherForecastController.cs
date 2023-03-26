@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
+using ProjectCosts.Api;
 
-namespace ProjectCosts.WebApi.Controllers
+namespace ProjectCosts.Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]
