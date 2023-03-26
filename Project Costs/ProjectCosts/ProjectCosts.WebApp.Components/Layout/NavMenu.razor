@@ -1,1 +1,15 @@
-<h3>NavMenu</h3>
+@using Microsoft.AspNetCore.Components.Routing
+
+<MudNavMenu Class="mt-2" Color="Color.Success" Bordered>
+    <MudNavLink Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Home" Href="./">Home</MudNavLink>
+    <MudDivider Class="my-2" />
+
+    <MudNavGroup Title="View" Expanded>
+        <MudNavLink Icon="@Icons.Material.Filled.Timeline" Href="./timeline">Timeline</MudNavLink>
+        <MudNavLink Icon="@Icons.Material.Filled.TableView" Href="./tabular">Tabular</MudNavLink>
+        <MudNavLink Icon="@Icons.Material.Filled.Archive" Href="./archive">Archive</MudNavLink>
+    </MudNavGroup>
+    <MudDivider Class="my-2" />
+
+    <MudNavLink Icon="@Icons.Material.Filled.Add" Href="./new">Create</MudNavLink>
+</MudNavMenu>
