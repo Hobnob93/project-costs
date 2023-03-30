@@ -13,10 +13,11 @@ public partial class ProjectTypeAvatar
     {
         return ProjectType switch
         {
-            ProjectType.House => Icons.Material.Filled.House,
+            ProjectType.Diy => Icons.Material.Filled.Handyman,
             ProjectType.Event => Icons.Material.Filled.Event,
+            ProjectType.Holiday => Icons.Material.Filled.Airlines,
             ProjectType.Other => Icons.Material.Filled.QuestionMark,
-            _ => Icons.Material.Filled.Money
+            _ => Icons.Material.Filled.Hexagon
         };
     }
 }

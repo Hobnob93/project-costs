@@ -1,5 +1,11 @@
 ﻿@page "/"
+@inherits FluxorComponent
 
-<h1>Hello, home page!</h1>
-
-<ProjectCard />
+<MudGrid>
+    @foreach (var project in State.Value.Projects)
+    {
+        <MudItem xs="12" sm="12" md="6" lg="4">
+            <ProjectCard Project="project" />
+        </MudItem>
+    }
+</MudGrid>

@@ -1,22 +1,24 @@
-﻿<MudCard>
+﻿@using ProjectCosts.Core.Extensions;
+
+<MudCard>
     <MudCardHeader>
         <CardHeaderAvatar>
             <ProjectTypeAvatar ProjectType="@Project.Type" />
         </CardHeaderAvatar>
         <CardHeaderContent>
-            <MudText Typo="Typo.body1">Istra Croatia</MudText>
-            <MudText Typo="Typo.body2">Peninsula in Europe</MudText>
+            <MudText Typo="Typo.h6" Color="Color.Warning">@Project.Name</MudText>
+            <MudText Typo="Typo.body2">@Project.Type.GetDisplayName()</MudText>
         </CardHeaderContent>
         <CardHeaderActions>
-            <MudIconButton Icon="@Icons.Material.Filled.Settings" Color="Color.Default" />
+            <MudIconButton Icon="@Icons.Material.Filled.Edit" Color="Color.Default" />
         </CardHeaderActions>
     </MudCardHeader>
     <MudCardMedia Image="@ProjectImage" Height="250" />
     <MudCardContent>
-        <MudText Typo="Typo.body2">This photo was taken in a small village in Istra Croatia.</MudText>
+        <MudPaper Elevation="0" Class="d-flex align-center justify-space-between mud-width-full py-4">
+            <DateDisplay Date="@Project.StartDate" />
+            <DaysAwayDisplay Date="@Project.StartDate" />
+            <CostDisplay Cost="@Project.Cost" />
+        </MudPaper>
     </MudCardContent>
-    <MudCardActions>
-        <MudIconButton Icon="@Icons.Material.Filled.Favorite" Color="Color.Default" />
-        <MudIconButton Icon="@Icons.Material.Filled.Share" Color="Color.Default" />
-    </MudCardActions>
 </MudCard>
