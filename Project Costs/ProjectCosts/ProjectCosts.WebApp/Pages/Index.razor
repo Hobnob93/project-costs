@@ -2,10 +2,10 @@
 @inherits FluxorComponent
 
 <MudGrid>
-    @foreach (var project in State.Value.Projects)
+    @foreach (var thing in State.Value.Things)
     {
         <MudItem xs="12" sm="12" md="6" lg="4">
-            <ProjectCard Project="project" />
+            <ThingCard Thing="thing" />
         </MudItem>
     }
 </MudGrid>

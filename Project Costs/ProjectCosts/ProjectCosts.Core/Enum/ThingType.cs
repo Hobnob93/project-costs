@@ -2,7 +2,7 @@
 
 namespace ProjectCosts.Core.Enum;
 
-public enum ProjectType
+public enum ThingType
 {
     [Display(Name = "Unknown")]
     None,
@@ -12,6 +12,10 @@ public enum ProjectType
     Event,
     [Display(Name = "Holiday")]
     Holiday,
+    [Display(Name = "Birthday")]
+    Birthday,
+    [Display(Name = "Christmas")]
+    Christmas,
     [Display(Name = "Other")]
     Other
 }
