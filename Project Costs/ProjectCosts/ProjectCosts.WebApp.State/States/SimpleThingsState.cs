@@ -2,4 +2,4 @@
 
 namespace ProjectCosts.Web.Store.States;
 
-public record HomeState(ThingOverview[] Things);
+public record SimpleThingsState(ThingOverview[] Things);

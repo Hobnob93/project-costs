@@ -8,5 +8,5 @@ namespace ProjectCosts.Web.Pages;
 public partial class Index : FluxorComponent
 {
     [Inject]
-    private IState<HomeState> State { get; set; } = default!;
+    private IState<SimpleThingsState> State { get; set; } = default!;
 }

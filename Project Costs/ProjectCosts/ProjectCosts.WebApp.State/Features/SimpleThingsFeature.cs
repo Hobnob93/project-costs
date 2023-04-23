@@ -4,16 +4,16 @@ using ProjectCosts.Web.Store.States;
 
 namespace ProjectCosts.Web.Store.Features;
 
-public class HomeFeature : Feature<HomeState>
+public class SimpleThingsFeature : Feature<SimpleThingsState>
 {
     public override string GetName()
     {
-        return nameof(HomeFeature);
+        return nameof(SimpleThingsFeature);
     }
 
-    protected override HomeState GetInitialState()
+    protected override SimpleThingsState GetInitialState()
     {
-        return new HomeState
+        return new SimpleThingsState
         (
             new []
             {
@@ -27,7 +27,7 @@ public class HomeFeature : Feature<HomeState>
                     },
                     Type = Core.Enum.ThingType.Diy,
                     StartDate = DateOnly.FromDateTime(DateTime.Now.AddDays(50)),
-                    Image = "https://rocketleague.media.zestyio.com/seasonylogostime.jpg?width=1440&optimize=high"
+                    Image = "https://nustone.co.uk/wp-content/uploads/2017/03/Raj-Green-Riven-Patio-Kit-67.jpg"
                 },
                 new ThingOverview
                 {

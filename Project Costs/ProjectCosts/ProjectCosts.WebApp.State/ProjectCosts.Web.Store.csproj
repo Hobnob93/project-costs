@@ -17,7 +17,6 @@
   <ItemGroup>
     <Folder Include="Actions\" />
     <Folder Include="Reducers\" />
-    <Folder Include="States\" />
   </ItemGroup>
 
 </Project>
