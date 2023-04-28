@@ -3,4 +3,4 @@ using ProjectCosts.Core.Models;
 
 namespace ProjectCosts.Web.Store.States;
 
-public record SimpleThingsState(FetchingStatus FetchStatus, ThingOverview[] Things);
+public record SelectedThingState(FetchingStatus FetchStatus, ThingOverview? Thing);

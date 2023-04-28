@@ -14,9 +14,4 @@
     <ProjectReference Include="..\ProjectCosts.Core\ProjectCosts.Core.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Actions\" />
-    <Folder Include="Reducers\" />
-  </ItemGroup>
-
 </Project>

@@ -1,4 +1,5 @@
 ﻿using Fluxor;
+using ProjectCosts.Core.Enum;
 using ProjectCosts.Core.Models;
 using ProjectCosts.Web.Store.States;
 
@@ -15,7 +16,8 @@ public class SimpleThingsFeature : Feature<SimpleThingsState>
     {
         return new SimpleThingsState
         (
-            new []
+            FetchStatus: FetchingStatus.Loaded,
+            Things: new []
             {
                 new ThingOverview
                 {
@@ -25,7 +27,7 @@ public class SimpleThingsFeature : Feature<SimpleThingsState>
                     {
                         Value = 1469.42m
                     },
-                    Type = Core.Enum.ThingType.Diy,
+                    Type = ThingType.Diy,
                     StartDate = DateOnly.FromDateTime(DateTime.Now.AddDays(50)),
                     Image = "https://nustone.co.uk/wp-content/uploads/2017/03/Raj-Green-Riven-Patio-Kit-67.jpg"
                 },
@@ -41,7 +43,7 @@ public class SimpleThingsFeature : Feature<SimpleThingsState>
                             UpperEstimate = 644.00m
                         }
                     },
-                    Type = Core.Enum.ThingType.Holiday,
+                    Type = ThingType.Holiday,
                     StartDate = DateOnly.FromDateTime(DateTime.Now.AddDays(150)),
                     Image = "https://www.singaporeair.com/saar5/images/navigation/flying-withus/our-fleet/boeing-787-10.jpg"
                 },
@@ -53,7 +55,7 @@ public class SimpleThingsFeature : Feature<SimpleThingsState>
                     {
                         Value = 515.00m
                     },
-                    Type = Core.Enum.ThingType.Event,
+                    Type = ThingType.Event,
                     StartDate = DateOnly.FromDateTime(DateTime.Now.AddDays(5)),
                     Image = "https://c.ststat.net/content/sites/insomnia/images/logo.png"
                 },
@@ -65,7 +67,7 @@ public class SimpleThingsFeature : Feature<SimpleThingsState>
                     {
                         Value = 100.00m
                     },
-                    Type = Core.Enum.ThingType.Birthday,
+                    Type = ThingType.Birthday,
                     StartDate = new DateOnly(2023, 06, 20),
                     Image = "https://scontent.fbrs4-1.fna.fbcdn.net/v/t1.6435-9/175642927_10222843332485756_7995688513197375790_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=zhjSpAijs40AX_xgs9i&_nc_ht=scontent.fbrs4-1.fna&oh=00_AfA2PvqaX3OOk1fzAY1DUJGReEfLfXKXa2OkhoKH0gdSnw&oe=646B8635"
                 },
@@ -77,7 +79,7 @@ public class SimpleThingsFeature : Feature<SimpleThingsState>
                     {
                         Value = 400.00m
                     },
-                    Type = Core.Enum.ThingType.Christmas,
+                    Type = ThingType.Christmas,
                     StartDate = new DateOnly(2023, 12, 25),
                     Image = "https://assets.editorial.aetnd.com/uploads/2009/10/christmas-gettyimages-184652817.jpg"
                 },
@@ -89,7 +91,7 @@ public class SimpleThingsFeature : Feature<SimpleThingsState>
                     {
                         Value = 150.00m
                     },
-                    Type = Core.Enum.ThingType.Other,
+                    Type = ThingType.Other,
                     StartDate = DateOnly.FromDateTime(DateTime.Now.AddDays(272))
                 },
                 new ThingOverview
@@ -100,7 +102,7 @@ public class SimpleThingsFeature : Feature<SimpleThingsState>
                     {
                         Value = 1500.00m
                     },
-                    Type = Core.Enum.ThingType.None,
+                    Type = ThingType.None,
                     StartDate = DateOnly.FromDateTime(DateTime.Now.AddDays(365))
                 }
             }

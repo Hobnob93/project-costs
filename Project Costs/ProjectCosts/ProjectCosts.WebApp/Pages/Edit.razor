@@ -1,0 +1,26 @@
+﻿@using ProjectCosts.Core.Enum;
+
+@page "/edit/{id}"
+@inherits FluxorComponent
+
+@if (FetchStatus == FetchingStatus.Loading)
+{
+    <MudText Color="Color.Info">Loading...</MudText>
+}
+else if (FetchStatus == FetchingStatus.Loaded && SelectedThing is not null)
+{
+    <MudText>@SelectedThing.Id</MudText>
+    <MudText>@SelectedThing.Name</MudText>
+    <MudText>@SelectedThing.Cost.ToString()</MudText>
+    <MudText>@SelectedThing.Image</MudText>
+    <MudText>@SelectedThing.Type.ToString()</MudText>
+    <MudText>@SelectedThing.StartDate.ToString()</MudText>
+}
+else if (FetchStatus == FetchingStatus.Failed)
+{
+    <MudText Color="Color.Error">Failed To Load</MudText>
+}
+else
+{
+    <MudText Color="Color.Warning">Nothing here yet...</MudText>
+}

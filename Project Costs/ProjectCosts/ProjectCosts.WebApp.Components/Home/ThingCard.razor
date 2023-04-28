@@ -10,7 +10,7 @@
             <MudText Typo="Typo.body2">@Thing.Type.GetDisplayName()</MudText>
         </CardHeaderContent>
         <CardHeaderActions>
-            <MudIconButton Icon="@Icons.Material.Filled.Edit" Color="Color.Default" />
+            <MudIconButton Icon="@Icons.Material.Filled.Edit" Color="Color.Default" OnClick="NavigateToEdit" />
         </CardHeaderActions>
     </MudCardHeader>
     <MudCardMedia Image="@ThingImage" Height="250" />
