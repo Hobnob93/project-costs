@@ -1,11 +1,28 @@
-﻿@page "/"
+﻿@using ProjectCosts.Core.Enum;
+
+@page "/"
 @inherits FluxorComponent
 
-<MudGrid>
-    @foreach (var thing in State.Value.Things)
-    {
-        <MudItem xs="12" sm="12" md="6" lg="4">
-            <ThingCard Thing="thing" />
-        </MudItem>
-    }
-</MudGrid>
+@if (FetchStatus == FetchingStatus.Loading)
+{
+    <HorizontalLoader />
+}
+else if (FetchStatus == FetchingStatus.Loaded && Things.Length > 0)
+{
+    <MudGrid>
+        @foreach (var thing in Things)
+        {
+            <MudItem xs="12" sm="12" md="6" lg="4">
+                <ThingCard Thing="thing" />
+            </MudItem>
+        }
+    </MudGrid>
+}
+else if (FetchStatus == FetchingStatus.Errored)
+{
+    <MudText Color="Color.Error">Failed To Load: @State.Value.Error</MudText>
+}
+else
+{
+    <MudText Color="Color.Warning">Nothing here yet...</MudText>
+}

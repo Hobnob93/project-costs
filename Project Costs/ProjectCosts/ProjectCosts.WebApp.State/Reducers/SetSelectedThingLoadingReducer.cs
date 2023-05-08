@@ -12,6 +12,7 @@ public class SetSelectedThingLoadingReducer : Reducer<SelectedThingState, SetSel
         return new SelectedThingState
         (
             FetchStatus: FetchingStatus.Loading,
+            Error: null,
             Thing: null
         );
     }

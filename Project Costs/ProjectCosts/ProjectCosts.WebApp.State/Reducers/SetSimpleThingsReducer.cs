@@ -5,15 +5,15 @@ using ProjectCosts.Web.Store.States;
 
 namespace ProjectCosts.Web.Store.Reducers;
 
-public class SetSelectedThingReducer : Reducer<SelectedThingState, SetSelectedThingAction>
+public class SetSimpleThingsReducer : Reducer<SimpleThingsState, SetSimpleThingsAction>
 {
-    public override SelectedThingState Reduce(SelectedThingState state, SetSelectedThingAction action)
+    public override SimpleThingsState Reduce(SimpleThingsState state, SetSimpleThingsAction action)
     {
-        return new SelectedThingState
+        return new SimpleThingsState
         (
             FetchStatus: FetchingStatus.Loaded,
             Error: null,
-            Thing: action.Thing
+            Things: action.Things
         );
     }
 }

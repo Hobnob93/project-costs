@@ -1,27 +1,30 @@
 ﻿using Fluxor;
-using ProjectCosts.Core.Models;
+using ProjectCosts.Core.Interfaces;
 using ProjectCosts.Web.Store.Actions;
 
 namespace ProjectCosts.Web.Store.Effects;
 
 public class SelectThingEffect : Effect<SelectThingAction>
 {
+    private readonly ISimpleThingClient _simpleThingClient;
+
+    public SelectThingEffect(ISimpleThingClient simpleThingClient)
+    {
+        _simpleThingClient = simpleThingClient;
+    }
+
     public override async Task HandleAsync(SelectThingAction action, IDispatcher dispatcher)
     {
         dispatcher.Dispatch(new SetSelectedThingLoadingAction());
 
-        await Task.Delay(1000); // TODO: Call API to get thing by id
+        var result = await _simpleThingClient.GetSimpleThingAsync(action.ThingId);
+        var nextAction = result.Match<object>
+        (
+            thing => new SetSelectedThingAction(thing),
+            notFound => new SetSelectedThingErrorAction($"Item with ID '{action.ThingId}' could not be found."),
+            error => new SetSelectedThingErrorAction(error.Value)
+        );
 
-        dispatcher.Dispatch(new SetSelectedThingAction(new ThingOverview
-        {
-            Id = action.ThingId,
-            Name = "Test Thing",
-            Image = "https://via.placeholder.com/150",
-            StartDate = DateOnly.FromDateTime(DateTime.Now),
-            Cost = new Cost()
-            {
-                Value = 100m
-            }
-        }));
+        dispatcher.Dispatch(nextAction);
     }
 }

@@ -5,5 +5,5 @@ public enum FetchingStatus
     NotStarted,
     Loading,
     Loaded,
-    Failed
+    Errored
 }

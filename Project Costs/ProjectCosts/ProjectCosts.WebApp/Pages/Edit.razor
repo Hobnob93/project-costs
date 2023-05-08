@@ -5,7 +5,7 @@
 
 @if (FetchStatus == FetchingStatus.Loading)
 {
-    <MudText Color="Color.Info">Loading...</MudText>
+    <HorizontalLoader />
 }
 else if (FetchStatus == FetchingStatus.Loaded && SelectedThing is not null)
 {
@@ -16,9 +16,9 @@ else if (FetchStatus == FetchingStatus.Loaded && SelectedThing is not null)
     <MudText>@SelectedThing.Type.ToString()</MudText>
     <MudText>@SelectedThing.StartDate.ToString()</MudText>
 }
-else if (FetchStatus == FetchingStatus.Failed)
+else if (FetchStatus == FetchingStatus.Errored)
 {
-    <MudText Color="Color.Error">Failed To Load</MudText>
+    <MudText Color="Color.Error">Failed To Load: @SelectedThingState.Value.Error</MudText>
 }
 else
 {

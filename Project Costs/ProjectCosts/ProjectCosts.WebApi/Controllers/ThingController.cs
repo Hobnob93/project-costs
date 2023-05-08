@@ -72,6 +72,19 @@ public class ThingController : ControllerBase
         return Ok(existingThing);
     }
 
+    [HttpDelete("{id}", Name = "DeleteSimpleThing")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public IActionResult DeleteSimpleThing(string id)
+    {
+        var thing = SimpleThings.FirstOrDefault(t => t.Id == id);
+        if (thing == null)
+            return NotFound();
+
+        SimpleThings.Remove(thing);
+        return NoContent();
+    }
+
     private List<ThingOverview> SimpleThings = new()
     {
         new ThingOverview

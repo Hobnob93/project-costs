@@ -6,7 +6,8 @@ public record ProjectCostsApiOptions
     string GetSimpleThings,
     string GetSimpleThing,
     string CreateSimpleThing,
-    string UpdateSimpleThing
+    string UpdateSimpleThing,
+    string DeleteSimpleThing
 )
 {
     public const string ConfigSection = "ProjectCostsApi";

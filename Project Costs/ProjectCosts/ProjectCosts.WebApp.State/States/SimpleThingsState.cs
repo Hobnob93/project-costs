@@ -3,4 +3,5 @@ using ProjectCosts.Core.Models;
 
 namespace ProjectCosts.Web.Store.States;
 
-public record SimpleThingsState(FetchingStatus FetchStatus, ThingOverview[] Things);
+public record SimpleThingsState(FetchingStatus FetchStatus, string? Error, ThingOverview[] Things)
+    : BaseApiFetchState(FetchStatus, Error);

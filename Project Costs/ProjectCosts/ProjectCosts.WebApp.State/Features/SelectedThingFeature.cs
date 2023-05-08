@@ -16,6 +16,7 @@ public class SelectedThingFeature : Feature<SelectedThingState>
         return new SelectedThingState
         (
             FetchStatus: FetchingStatus.NotStarted,
+            Error: null,
             Thing: null
         );
     }
