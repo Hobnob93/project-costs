@@ -1,33 +1,38 @@
 ﻿@using ProjectCosts.Core.Enum;
+@using ProjectCosts.Core.Extensions;
 
 @page "/edit/{id}"
 @inherits FluxorComponent
 
-<MudPaper Class="pa-5">
-    <ApiFetchDisplay FetchState="SelectedThingState.Value" DisplayPredicate="() => _formModel is not null">
-        <EditForm Model="@_formModel" OnValidSubmit="OnValidSubmit">
-            <DataAnnotationsValidator />
+<MudGrid Class="pa-5" Justify="Justify.Center">
+    <MudItem xs="12" md="10" lg="8" xl="6">
+        <ApiFetchDisplay FetchState="SelectedThingState.Value" DisplayPredicate="() => _formModel is not null">
+            <MudPaper Class="pa-4" Elevation="3">
+                <EditForm Model="@_formModel" OnValidSubmit="OnValidSubmit">
+                    <DataAnnotationsValidator />
 
-            <MudTextField Label="Thing Name" HelperText="The name for the project/event/expense" Variant="Variant.Outlined"
-                          @bind-Value="_formModel!.Name" For="@(() => _formModel!.Name)" />
+                    <MudTextField Class="mb-2 mt-2" Label="Thing Name" HelperText="The name for the project/event/expense" Variant="Variant.Outlined"
+                                  @bind-Value="_formModel!.Name" For="@(() => _formModel!.Name)" />
 
-            <MudTextField Label="Image URL" HelperText="The URL for the image used in the dashboard and timeline" Variant="Variant.Outlined"
-                          @bind-Value="_formModel.Image" For="@(() => _formModel.Image)" />
+                    <MudTextField Class="mb-2" Label="Image URL" HelperText="The URL for the image used in the dashboard and timeline" Variant="Variant.Outlined"
+                                  @bind-Value="_formModel.Image" For="@(() => _formModel.Image)" />
 
-            <MudSelect T="ThingType" Label="Thing Type" HelperText="Select the type of 'thing' it is" Variant="Variant.Outlined" @bind-Value="_formModel.Type">
-                @foreach (ThingType type in Enum.GetValues(typeof(ThingType)))
-                {
-                    <MudSelectItem Value="@type">@type.ToString()</MudSelectItem>
-                }
-            </MudSelect>
+                    <MudSelect Class="mb-2" T="ThingType" Label="Thing Type" HelperText="Select the type of 'thing' it is" Variant="Variant.Outlined" @bind-Value="_formModel.Type">
+                        @foreach (ThingType type in Enum.GetValues(typeof(ThingType)))
+                        {
+                            <MudSelectItem Value="@type">@type.GetDisplayName()</MudSelectItem>
+                        }
+                    </MudSelect>
 
-            <MudDatePicker Label="Estimated Start Date" @bind-Date="_formModel.StartDate" DateFormat="dd/MM/yyyy" DisableToolbar AutoClose />
-            
-            <MudDivider DividerType="DividerType.Middle" Class="my-6" />
-            <ApiUpdateTmp UpdateState="SelectedThingState.Value">
-                <MudButton Class="ma-3" Variant="Variant.Filled" Color="Color.Success" ButtonType="ButtonType.Submit">Save</MudButton>
-                <MudButton Class="ma-3" Variant="Variant.Filled" Color="Color.Error" ButtonType="ButtonType.Button" OnClick="CancelClicked">Cancel</MudButton>
-            </ApiUpdateTmp>
-        </EditForm>
-    </ApiFetchDisplay>
-</MudPaper>
+                    <MudDatePicker Class="mb-2" Label="Estimated Start Date" @bind-Date="_formModel.StartDate" DateFormat="dd/MM/yyyy" DisableToolbar AutoClose />
+
+                    <MudDivider DividerType="DividerType.Middle" Class="my-6" />
+                    <ApiUpdateTmp UpdateState="SelectedThingState.Value">
+                        <MudButton Class="ma-3" Variant="Variant.Filled" Color="Color.Success" ButtonType="ButtonType.Submit">Save</MudButton>
+                        <MudButton Class="ma-3" Variant="Variant.Filled" Color="Color.Error" ButtonType="ButtonType.Button" OnClick="CancelClicked">Cancel</MudButton>
+                    </ApiUpdateTmp>
+                </EditForm>
+            </MudPaper>
+        </ApiFetchDisplay>
+    </MudItem>
+</MudGrid>
