@@ -72,6 +72,6 @@ public partial class Edit : FluxorComponent
 
     private void CancelClicked()
     {
-        NavigationManager.NavigateTo("./");
+        NavigationManager.NavigateTo($"./view/{Id}");
     }
 }
