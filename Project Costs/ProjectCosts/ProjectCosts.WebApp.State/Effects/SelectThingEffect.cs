@@ -20,9 +20,9 @@ public class SelectThingEffect : Effect<SelectThingAction>
         var result = await _simpleThingClient.GetSimpleThingAsync(action.ThingId);
         var nextAction = result.Match<object>
         (
-            thing => new SetSelectedThingAction(thing),
-            notFound => new SetSelectedThingErrorAction($"Item with ID '{action.ThingId}' could not be found."),
-            error => new SetSelectedThingErrorAction(error.Value)
+            thing => new SetSelectedThingLoadedAction(Thing: thing),
+            notFound => new SetSelectedThingLoadedAction(Error: $"Item with ID '{action.ThingId}' could not be found."),
+            error => new SetSelectedThingLoadedAction(Error: error.Value)
         );
 
         dispatcher.Dispatch(nextAction);

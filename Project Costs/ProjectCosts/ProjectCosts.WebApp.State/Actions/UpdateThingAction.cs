@@ -2,4 +2,4 @@
 
 namespace ProjectCosts.Web.Store.Actions;
 
-public record SetSelectedThingAction(ThingOverview Thing);
+public record UpdateThingAction(UpdateThingData UpdateData);

@@ -13,7 +13,7 @@ public class SetSimpleThingsErrorReducer : Reducer<SimpleThingsState, SetSimpleT
         return new SimpleThingsState
         (
             FetchStatus: FetchingStatus.Errored,
-            Error: action.Error,
+            FetchError: action.Error,
             Things: Array.Empty<ThingOverview>()
         );
     }

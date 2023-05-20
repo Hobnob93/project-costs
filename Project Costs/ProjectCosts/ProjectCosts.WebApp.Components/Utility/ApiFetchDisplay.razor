@@ -1,0 +1,18 @@
+﻿@using ProjectCosts.Core.Enum;
+
+@if (Status == FetchingStatus.Loading)
+{
+    <HorizontalLoader />
+}
+else if (Status == FetchingStatus.Loaded && ExtraCheckIsSuccess())
+{
+    @ChildContent
+}
+else if (Status == FetchingStatus.Errored)
+{
+    <MudText Color="Color.Error">Failed To Load: @Error</MudText>
+}
+else
+{
+    <MudText Color="Color.Warning">Nothing here yet...</MudText>
+}

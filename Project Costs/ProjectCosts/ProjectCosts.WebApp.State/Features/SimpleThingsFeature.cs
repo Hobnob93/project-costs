@@ -17,7 +17,7 @@ public class SimpleThingsFeature : Feature<SimpleThingsState>
         return new SimpleThingsState
         (
             FetchStatus: FetchingStatus.NotStarted,
-            Error: null,
+            FetchError: null,
             Things: Array.Empty<ThingOverview>()
         );
     }

@@ -39,14 +39,26 @@ public class ThingController : ControllerBase
     [Consumes(MediaTypeNames.Application.Json)]
     [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(ThingOverview))]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public IActionResult CreateSimpleThing(ThingOverview thing)
+    public IActionResult CreateSimpleThing(CreateThingData createThing)
     {
-        if (thing == null)
+        if (createThing == null)
             return BadRequest();
 
-        thing.Id = Guid.NewGuid().ToString();
-        SimpleThings.Add(thing);
-        return CreatedAtAction(nameof(GetSimpleThing), new { id = thing.Id }, thing);
+        var newThing = new ThingOverview
+        {
+            Id = Guid.NewGuid().ToString(),
+            Name = createThing.Name,
+            Cost = new Cost
+            {
+                Value = 0
+            },
+            StartDate = createThing.StartDate,
+            Image = createThing.Image,
+            Type = createThing.Type
+        };
+
+        SimpleThings.Add(newThing);
+        return CreatedAtAction(nameof(GetSimpleThing), new { id = newThing.Id }, newThing);
     }
 
     [HttpPut(Name = "UpdateSimpleThing")]
@@ -54,20 +66,19 @@ public class ThingController : ControllerBase
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ThingOverview))]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public IActionResult UpdateSimpleThing(ThingOverview thing)
+    public IActionResult UpdateSimpleThing(UpdateThingData updateThing)
     {
-        if (thing == null)
+        if (updateThing == null)
             return BadRequest();
 
-        var existingThing = SimpleThings.FirstOrDefault(t => t.Id == thing.Id);
+        var existingThing = SimpleThings.FirstOrDefault(t => t.Id == updateThing.Id);
         if (existingThing == null)
             return NotFound();
 
-        existingThing.Name = thing.Name;
-        existingThing.Cost = thing.Cost;
-        existingThing.StartDate = thing.StartDate;
-        existingThing.Image = thing.Image;
-        existingThing.Type = thing.Type;
+        existingThing.Name = updateThing.Name;
+        existingThing.StartDate = updateThing.StartDate;
+        existingThing.Image = updateThing.Image;
+        existingThing.Type = updateThing.Type;
 
         return Ok(existingThing);
     }

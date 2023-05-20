@@ -1,11 +1,11 @@
 ﻿using ProjectCosts.Core.Enum;
-using ProjectCosts.Core.Models;
 
 namespace ProjectCosts.Web.Store.States;
 
-public record SimpleThingsState
+public abstract record BaseApiUpdateState
 (
     FetchingStatus FetchStatus,
     string? FetchError,
-    ThingOverview[] Things
+    UpdatingStatus UpdateStatus,
+    string? UpdateError
 ) : BaseApiFetchState(FetchStatus, FetchError);

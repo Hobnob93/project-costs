@@ -1,9 +1,9 @@
 ﻿namespace ProjectCosts.Core.Enum;
 
-public enum UpdatingStatus
+public enum FetchingStatus
 {
     NotStarted,
-    Updating,
-    Updated,
+    Loading,
+    Loaded,
     Errored
 }

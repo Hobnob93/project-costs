@@ -1,8 +1,9 @@
 ﻿using Fluxor;
 using Fluxor.Blazor.Web.Components;
 using Microsoft.AspNetCore.Components;
-using ProjectCosts.Core.Enum;
+using Microsoft.AspNetCore.Components.Forms;
 using ProjectCosts.Core.Models;
+using ProjectCosts.Web.Components.ViewModel;
 using ProjectCosts.Web.Store.Actions;
 using ProjectCosts.Web.Store.States;
 
@@ -16,11 +17,15 @@ public partial class Edit : FluxorComponent
     [Inject]
     private IState<SelectedThingState> SelectedThingState { get; set; } = default!;
 
+    [Inject]
+    private NavigationManager NavigationManager { get; set; } = default!;
+
     [Parameter]
     public string Id { get; set; } = string.Empty;
 
+    private EditThingViewModel? _formModel;
     private ThingOverview? SelectedThing => SelectedThingState.Value.Thing;
-    private FetchingStatus FetchStatus => SelectedThingState.Value.FetchStatus;
+
 
     protected override void OnInitialized()
     {
@@ -30,5 +35,43 @@ public partial class Edit : FluxorComponent
             return;
 
         Dispatcher.Dispatch(new SelectThingAction(Id));
+
+        SelectedThingState.StateChanged += OnSelectedThingStateChanged;     // FluxorComponent handles unsubscribing
+    }
+
+    private void OnSelectedThingStateChanged(object? sender, EventArgs e)
+    {
+        if (SelectedThing is null)
+            return;
+
+        _formModel = new EditThingViewModel
+        { 
+            Id = SelectedThing.Id,
+            Name = SelectedThing.Name,
+            Image = SelectedThing.Image,
+            StartDate = SelectedThing.StartDate.ToDateTime(TimeOnly.MinValue),
+            Type = SelectedThing.Type
+        };
+
+        StateHasChanged();
+    }
+
+    private void OnValidSubmit(EditContext context)
+    {
+        var updateData = new UpdateThingData
+        {
+            Id = _formModel!.Id,
+            Name = _formModel.Name!,
+            Image = _formModel.Image,
+            StartDate = DateOnly.FromDateTime(_formModel.StartDate!.Value),
+            Type = _formModel.Type
+        };
+
+        Dispatcher.Dispatch(new UpdateThingAction(updateData));
+    }
+
+    private void CancelClicked()
+    {
+        NavigationManager.NavigateTo("./");
     }
 }

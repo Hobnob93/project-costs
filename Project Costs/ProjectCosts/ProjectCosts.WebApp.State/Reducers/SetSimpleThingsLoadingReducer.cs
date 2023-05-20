@@ -13,7 +13,7 @@ public class SetSimpleThingsLoadingReducer : Reducer<SimpleThingsState, SetSimpl
         return new SimpleThingsState
         (
             FetchStatus: FetchingStatus.Loading,
-            Error: null,
+            FetchError: null,
             Things: Array.Empty<ThingOverview>()
         );
     }

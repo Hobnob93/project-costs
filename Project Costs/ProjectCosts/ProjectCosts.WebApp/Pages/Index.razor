@@ -3,12 +3,7 @@
 @page "/"
 @inherits FluxorComponent
 
-@if (FetchStatus == FetchingStatus.Loading)
-{
-    <HorizontalLoader />
-}
-else if (FetchStatus == FetchingStatus.Loaded && Things.Length > 0)
-{
+<ApiFetchDisplay FetchState="State.Value" DisplayPredicate="() => Things.Length > 0">
     <MudGrid>
         @foreach (var thing in Things)
         {
@@ -17,12 +12,4 @@ else if (FetchStatus == FetchingStatus.Loaded && Things.Length > 0)
             </MudItem>
         }
     </MudGrid>
-}
-else if (FetchStatus == FetchingStatus.Errored)
-{
-    <MudText Color="Color.Error">Failed To Load: @State.Value.Error</MudText>
-}
-else
-{
-    <MudText Color="Color.Warning">Nothing here yet...</MudText>
-}
+</ApiFetchDisplay>

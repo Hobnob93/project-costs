@@ -1,0 +1,19 @@
+﻿@using ProjectCosts.Core.Enum;
+
+@if (Status == UpdatingStatus.NotStarted || Status == UpdatingStatus.Updated)
+{
+    @ChildContent
+}
+
+@if (Status == UpdatingStatus.Updating)
+{
+    <HorizontalLoader />
+}
+else if (Status == UpdatingStatus.Updated)
+{
+    <MudText Color="Color.Success">Updated successfully</MudText>
+}
+else if (Status == UpdatingStatus.Errored)
+{
+    <MudText Color="Color.Error">Failed To Update: @Error</MudText>
+}

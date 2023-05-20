@@ -12,7 +12,7 @@ public class SetSimpleThingsReducer : Reducer<SimpleThingsState, SetSimpleThings
         return new SimpleThingsState
         (
             FetchStatus: FetchingStatus.Loaded,
-            Error: null,
+            FetchError: null,
             Things: action.Things
         );
     }
