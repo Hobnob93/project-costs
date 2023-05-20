@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
 using ProjectCosts.Core.Models;
 using ProjectCosts.Web.Components.ViewModel;
+using ProjectCosts.Web.Services;
 using ProjectCosts.Web.Store.Actions;
 using ProjectCosts.Web.Store.States;
 
@@ -18,7 +19,7 @@ public partial class Edit : FluxorComponent
     private IState<SelectedThingState> SelectedThingState { get; set; } = default!;
 
     [Inject]
-    private NavigationManager NavigationManager { get; set; } = default!;
+    private Navigation Navigation { get; set; } = default!;
 
     [Parameter]
     public string Id { get; set; } = string.Empty;
@@ -72,6 +73,6 @@ public partial class Edit : FluxorComponent
 
     private void CancelClicked()
     {
-        NavigationManager.NavigateTo($"./view/{Id}");
+        Navigation.NavigateBack();
     }
 }

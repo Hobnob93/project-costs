@@ -10,6 +10,7 @@ using ProjectCosts.Web.Extensions;
 using ProjectCosts.Core.Interfaces;
 using ProjectCosts.Core.Clients;
 using DevTrends.ConfigurationExtensions;
+using ProjectCosts.Web.Services;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
@@ -17,6 +18,7 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 
 builder.Services.SetupMudBlazor();
 builder.Services.SetupFluxor();
+builder.Services.AddSingleton<Navigation>();
 
 builder.Services.AddTransient<ISimpleThingClient, SimpleThingClient>();
 
