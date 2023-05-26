@@ -5,7 +5,7 @@
 @inherits FluxorComponent
 
 <MudGrid Class="pa-5" Justify="Justify.Center">
-    <MudItem xs="12" md="10" lg="8" xl="6">
+    <MudItem xs="12" md="10" lg="8" xl="7">
         <MudPaper Class="pa-4" Elevation="3">
             <EditForm Model="@_formModel" OnValidSubmit="OnValidSubmit">
                 <DataAnnotationsValidator />
@@ -27,9 +27,24 @@
 
                 <MudDivider DividerType="DividerType.Middle" Class="my-6" />
 
-                <MudButton Class="ma-3" Variant="Variant.Filled" Color="Color.Success" ButtonType="ButtonType.Submit">Create</MudButton>
-                <MudButton Class="ma-3" Variant="Variant.Filled" Color="Color.Error" ButtonType="ButtonType.Button" OnClick="CancelClicked">Cancel</MudButton>
+                <MudButton Class="ma-3" Variant="Variant.Filled" Color="Color.Success" ButtonType="ButtonType.Submit" Disabled="CreateStatus != UpdatingStatus.NotStarted">Create</MudButton>
+                <MudButton Class="ma-3" Variant="Variant.Filled" Color="Color.Error" ButtonType="ButtonType.Button" Disabled="CreateStatus != UpdatingStatus.NotStarted" OnClick="CancelClicked">Cancel</MudButton>
             </EditForm>
         </MudPaper>
+    </MudItem>
+
+    <MudItem xs="12" md="10" lg="8" xl="7">
+        @if (CreateStatus == UpdatingStatus.Updating)
+        {
+            <HorizontalLoader />
+        }
+        else if (CreateStatus == UpdatingStatus.Updated)
+        {
+            <MudText Color="Color.Success">Created successfully</MudText>
+        }
+        else if (CreateStatus == UpdatingStatus.Errored)
+        {
+            <MudText Color="Color.Error">Failed To Create: @CreateError</MudText>
+        }
     </MudItem>
 </MudGrid>

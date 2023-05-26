@@ -85,6 +85,21 @@ public class SimpleThingClient : ISimpleThingClient
         }
     }
 
+    public async Task<OneOf<ThingOverview, Error<string>>> CreateThingAsync(CreateThingData createData)
+    {
+        try
+        {
+            var result = await CreateClient().PostAsJsonAsync(_options.CreateSimpleThing, createData);
+            result.EnsureSuccessStatusCode();
+            return await result.Content.ReadFromJsonAsync<ThingOverview>()
+                ?? throw new InvalidOperationException("Create action succeeded but nothing was returned!");
+        }
+        catch (Exception ex)
+        {
+            return new Error<string>(ex.Message);
+        }
+    }
+
     public async Task<OneOf<Success, NotFound, Error<string>>> DeleteThingAsync(string id)
     {
         try

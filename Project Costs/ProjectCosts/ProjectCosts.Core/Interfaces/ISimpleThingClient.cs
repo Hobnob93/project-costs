@@ -10,4 +10,5 @@ public interface ISimpleThingClient
     Task<OneOf<ThingOverview, NotFound, Error<string>>> GetSimpleThingAsync(string id);
     Task<OneOf<List<ThingOverview>, Error<string>>> GetSimpleThingsAsync();
     Task<OneOf<ThingOverview, NotFound, Error<string>>> UpdateThingAsync(UpdateThingData updateData);
+    Task<OneOf<ThingOverview, Error<string>>> CreateThingAsync(CreateThingData createData);
 }

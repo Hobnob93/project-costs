@@ -4,7 +4,7 @@ using ProjectCosts.Web.Store.States;
 
 namespace ProjectCosts.Web.Components.Utility;
 
-public partial class ApiUpdateTmp
+public partial class ApiUpdateDisplay
 {
     [Parameter, EditorRequired]
     public BaseApiUpdateState UpdateState { get; set; } = default!;

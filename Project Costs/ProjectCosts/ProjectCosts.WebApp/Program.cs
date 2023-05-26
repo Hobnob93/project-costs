@@ -1,4 +1,3 @@
-using Microsoft.Extensions.Options;
 using Polly;
 using Polly.Contrib.WaitAndRetry;
 using ProjectCosts.Core.Constants;
@@ -10,7 +9,7 @@ using ProjectCosts.Web.Extensions;
 using ProjectCosts.Core.Interfaces;
 using ProjectCosts.Core.Clients;
 using DevTrends.ConfigurationExtensions;
-using ProjectCosts.Web.Services;
+using ProjectCosts.Core.Services;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");

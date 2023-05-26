@@ -2,9 +2,10 @@
 using Fluxor.Blazor.Web.Components;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
+using ProjectCosts.Core.Enum;
 using ProjectCosts.Core.Models;
+using ProjectCosts.Core.Services;
 using ProjectCosts.Web.Components.ViewModel;
-using ProjectCosts.Web.Services;
 using ProjectCosts.Web.Store.Actions;
 using ProjectCosts.Web.Store.States;
 
@@ -16,10 +17,14 @@ public partial class New : FluxorComponent
     private IDispatcher Dispatcher { get; set; } = default!;
 
     [Inject]
+    private IState<CreateThingResultState> CreateResultState { get; set; } = default!;
+
+    [Inject]
     private Navigation Navigation { get; set; } = default!;
 
     private EditThingViewModel _formModel = new();
-
+    private UpdatingStatus CreateStatus => CreateResultState.Value.CreateStatus;
+    private string? CreateError => CreateResultState.Value.CreateError;
 
     protected override void OnInitialized()
     {

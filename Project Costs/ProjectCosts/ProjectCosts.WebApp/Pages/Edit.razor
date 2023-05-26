@@ -27,10 +27,10 @@
                     <MudDatePicker Class="mb-2" Label="Estimated Start Date" @bind-Date="_formModel.StartDate" DateFormat="dd/MM/yyyy" DisableToolbar AutoClose />
 
                     <MudDivider DividerType="DividerType.Middle" Class="my-6" />
-                    <ApiUpdateTmp UpdateState="SelectedThingState.Value">
+                    <ApiUpdateDisplay UpdateState="SelectedThingState.Value">
                         <MudButton Class="ma-3" Variant="Variant.Filled" Color="Color.Success" ButtonType="ButtonType.Submit">Save</MudButton>
                         <MudButton Class="ma-3" Variant="Variant.Filled" Color="Color.Error" ButtonType="ButtonType.Button" OnClick="CancelClicked">Cancel</MudButton>
-                    </ApiUpdateTmp>
+                    </ApiUpdateDisplay>
                 </EditForm>
             </MudPaper>
         </ApiFetchDisplay>

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Routing;
 
-namespace ProjectCosts.Web.Services
+namespace ProjectCosts.Core.Services
 {
     public class Navigation : IDisposable
     {

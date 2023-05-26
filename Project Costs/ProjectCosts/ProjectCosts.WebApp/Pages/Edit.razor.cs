@@ -3,8 +3,8 @@ using Fluxor.Blazor.Web.Components;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
 using ProjectCosts.Core.Models;
+using ProjectCosts.Core.Services;
 using ProjectCosts.Web.Components.ViewModel;
-using ProjectCosts.Web.Services;
 using ProjectCosts.Web.Store.Actions;
 using ProjectCosts.Web.Store.States;
 
